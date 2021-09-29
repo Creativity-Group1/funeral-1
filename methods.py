@@ -21,7 +21,7 @@ def beneficiary_sms(contributor_name, contributor_amount, contributor_contact, b
     total_amount = get_total(beneficiary_name)
 
     recipient = beneficiary_number
-    sender = "Nickel".upper()  #Rev Nickel
+    sender = "test report".upper()  #Rev Nickel
     message = """
     You have received {:,.2f}GHS from {} ({}). Your total balance is {:,.2f}GHS.
     """.format(float(contributor_amount),contributor_name,contributor_contact,float(total_amount))

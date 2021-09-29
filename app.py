@@ -6,10 +6,10 @@ from methods import *
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8zffhgf46@@]'
 
-gideon = "0208162005"
-ekow = "0550726756"
-augusta = "0244879849"
-general_family = "0208162005"
+beneficiary1 = "0546353625"
+beneficiary2 = "0502654308"
+# beneficiary3 = "0244879849"
+# general_family = "0208162005"
 
 TABLE_NAME = "contributor"
 
@@ -60,17 +60,17 @@ def index():
 
         db.insert(TABLE_NAME, "name", "contact", "amount", "beneficiary","admin_name", name, contact, amount, beneficiary, admin_name)
         
-        if beneficiary == "Gideon":
-            beneficiary_sms(contributor_name, amount, contributor_contact, beneficiary, gideon)
+        if beneficiary == "ben1":
+            beneficiary_sms(contributor_name, amount, contributor_contact, beneficiary, beneficiary1)
             
-        elif beneficiary == "Ekow":
-            beneficiary_sms(contributor_name, amount, contributor_contact, beneficiary, ekow)
+        elif beneficiary == "ben2":
+            beneficiary_sms(contributor_name, amount, contributor_contact, beneficiary, beneficiary2)
 
-        elif beneficiary == "Augusta":
-            beneficiary_sms(contributor_name, amount, contributor_contact, beneficiary, augusta)
+        # elif beneficiary == "Augusta":
+        #     beneficiary_sms(contributor_name, amount, contributor_contact, beneficiary, augusta)
         
-        elif beneficiary == "General Family":
-            beneficiary_sms(contributor_name, amount, contributor_contact, beneficiary, general_family)
+        # elif beneficiary == "General Family":
+        #     beneficiary_sms(contributor_name, amount, contributor_contact, beneficiary, general_family)
         
         flash("{} GHS from {} processed for {}".format(amount,contributor_name,beneficiary))
         return redirect(url_for("index"))
